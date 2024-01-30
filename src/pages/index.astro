@@ -1,11 +1,104 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "@/layouts/Layout.astro"
+
+import AboutMe from "@/components/AboutMe.astro"
+import Badge from "@/components/Badge.astro"
+import Experience from "@/components/Experience.astro"
+import Projects from "@/components/Projects.astro"
+import SectionContainer from "@/components/SectionContainer.astro"
+import SocialPill from "@/components/SocialPill.astro"
+
+import Briefcase from "@/icons/Briefcase.astro"
+import CodeIcon from "@/icons/Code.astro"
+import GitHubIcon from "@/icons/GitHub.astro"
+import LinkedInIcon from "@/icons/LinkedIn.astro"
+import MailIcon from "@/icons/Mail.astro"
+import ProfileCheck from "@/icons/ProfileCheck.astro"
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-		
-	</main>
+<Layout
+  title="Porfolio de yadian llada - Desarrollador y Programador Web"
+  description="Contrata a yadian para crear tu aplicación web o móvil. Especializado en crear aplicaciones únicas."
+>
+  <main class="px-4">
+    <SectionContainer class="py-44 pb-32">
+      <img
+        class="rounded-full size-24 mb-4"
+        src="/avatar/avatar.jpg"
+        alt="yadian photo"
+      />
+      <h1
+        class="text-gray-900 dark:text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10"
+      >
+        Hi, I'm @yllada <a
+          href="https://linkedin.com/in/yllada94"
+          target="_blank"
+          rel="noopener"
+          class="flex justify-center items-center hover:scale-105 transition"
+        >
+          <Badge>Availible for hire</Badge>
+        </a>
+      </h1>
+      <h2
+        class="text-xl lg:text-2xl text-balance max-w-[700px] text-black dark:text-white"
+      >
+        <span>Web designer and developer based in </span><span
+          class="text-yellow-800 dark:text-yellow-200"
+        >
+          Ciego de Avila, Cuba </span
+        >
+        .<span class="text-red-800 dark:text-red-200">
+          De Barcelona, España</span
+        >.
+        <span class="text-sky-800 dark:text-sky-200"
+          >I specialize in UI - UX design, responsive web design and visual development.</span
+        >
+      </h2>
+
+      <nav class="flex gap-4 mt-8 flex-wrap">
+        <SocialPill href="https://linkedin.com/in/yllada94">
+          <LinkedInIcon class="size-4 md:size-6" />
+          LinkedIn
+        </SocialPill>
+        <SocialPill href="https://github.com/yllada">
+          <GitHubIcon class="size-4 md:size-6" />
+          GitHub
+        </SocialPill>
+        <SocialPill href="mailto:yadian.llada@gmail.com">
+          <MailIcon class="size-4 md:size-6" />
+          yadian.llada@gmail.com
+        </SocialPill>
+      </nav>
+    </SectionContainer>
+
+    <SectionContainer id="experiencia">
+      <h2
+        class="text-3xl font-semibold mb-6 flex gap-x-3 items-center text-black/80 dark:text-white/80"
+      >
+        <Briefcase class="size-7" />
+        Work experience
+      </h2>
+      <Experience />
+    </SectionContainer>
+
+    <SectionContainer id="proyectos">
+      <h2
+        class="text-3xl font-semibold mb-6 flex gap-x-3 items-center text-black/80 dark:text-white/80"
+      >
+        <CodeIcon class="size-7" />
+        Projects
+      </h2>
+      <Projects />
+    </SectionContainer>
+
+    <SectionContainer id="sobre-mi">
+      <h2
+        class="text-3xl font-semibold mb-6 flex gap-x-3 items-center text-black/80 dark:text-white/80"
+      >
+        <ProfileCheck class="size-7" />
+        About me
+      </h2>
+      <AboutMe />
+    </SectionContainer>
+  </main>
 </Layout>
-
-

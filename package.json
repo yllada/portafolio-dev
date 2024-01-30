@@ -1,5 +1,5 @@
 {
-  "name": "astro-dev",
+  "name": "porfolio-dev",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -10,11 +10,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.4.1",
-    "@astrojs/tailwind": "^5.1.0",
-    "@fontsource-variable/onest": "^5.0.2",
-    "astro": "^4.2.6",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5.3.3"
+    "@astrojs/check": "0.4.1",
+    "@astrojs/tailwind": "5.1.0",
+    "@fontsource-variable/onest": "5.0.2",
+    "astro": "4.1.3",
+    "tailwindcss": "3.4.1",
+    "typescript": "5.3.3"
   }
 }

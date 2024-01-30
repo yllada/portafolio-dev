@@ -1,15 +1,107 @@
-<header class="flex justify-between items-center py-2 w-[1120px]">
-    <img 
-    class="rounded-full size-10"
-    src="/avatar/avatar.jpg" 
-    alt="Yadian LLada Lopez avatar"
+---
+import HomeIcon from "@/icons/Home.astro"
+
+const navItems = [
+  {
+    title: "Experiencia",
+    label: "experiencia",
+    url: "/#experiencia",
+  },
+  {
+    title: "Proyectos",
+    label: "proyectos",
+    url: "/#proyectos",
+  },
+  {
+    title: "Sobre mí",
+    label: "sobre-mi",
+    url: "/#sobre-mi",
+  },
+  {
+    title: "Contacto",
+    label: "contacto",
+    url: "/#contacto",
+  },
+];
+---
+
+<header
+  class="h-14 flex justify-center items-center mx-auto pt-2 sticky top-0 w-full z-10"
+>
+<img src="/avatar/avatar.jpg" alt="" class=" size-12 rounded-full">
+  <nav
+    class={`
+      w-full md:w-3/4 lg:w-1/2 xl:w-[1270px] h-full
+      rounded-full md:px-6 px-3 py-1 
+      flex flex-wrap flex-row items-center justify-center
+      bg-neutral-200/70 dark:bg-black/50 backdrop-blur-2xl
+    `}
+  >
+    <a
+      class="hover:bg-white/10 p-1 rounded-full px-2 sm:px-3 transition ease-in text-sm sm:text-base capitalize"
+      href='/#'
     >
-    <nav class="flex flex-row gap-10 opacity-80">
-        <a href="/">Home</a>
-        <a href="/">About</a>
-        <a href="/">Projects</a>
-        <a href="/">Tecnologies</a>
-        <a href="/">Skills</a>
-        <a href="/">Contact</a>
-    </nav>
+      <HomeIcon />
+    </a>
+    {
+      navItems.map((link) => (
+        <a
+          class="hover:bg-white/10 p-1 rounded-full px-2 sm:px-3 transition ease-in text-sm sm:text-base capitalize"
+          aria-label={link.label}
+          href={link.url}
+        >
+          {link.title}
+        </a>
+      ))
+    }
+  </nav>
 </header>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const sections = document.querySelectorAll("section");
+    const navItems = document.querySelectorAll("header nav a");
+
+    const callback = (entries: any[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navItems.forEach((item) => {
+            if (item.getAttribute("aria-label") == entry.target.id) {
+              item.classList.add("link-active");
+            } else {
+              item.classList.remove("link-active");
+            }
+          });
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(callback, {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.3,
+    });
+
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+
+    // Cleanup function
+    window.onunload = () => {
+      observer.disconnect();
+    };
+  });
+</script>
+
+<style>
+  nav {
+    animation: nav-shadown 1s linear both;
+    animation-timeline: scroll();
+    animation-range: 0 400px;
+  }
+  @keyframes nav-shadown {
+    to {
+      @apply shadow-xl;
+    }
+  }
+</style>
